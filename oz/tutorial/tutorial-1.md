@@ -20,5 +20,9 @@
   http://qiita.com/opengl-8080/items/d4864bbc335d1e99a2d7
 
 * jsoup cookbook  
-  jsoupで何ができるかはここを一通り見るとわかる
+  jsoupで何ができるかはここを一通り見るとわかる  
   https://jsoup.org/cookbook/
+
+* 意外と知らない!?CSSセレクタ20個のおさらい  
+  chromeの開発者ツールでCSSセレクタは取得できるが、CSSセレクタの意味を知りたいならここを見る。
+  http://weboook.blog22.fc2.com/blog-entry-268.html
