@@ -53,14 +53,12 @@ pom.xml
 
 ## チュートリアル
 
-### Jsoupに慣れよう
+### Jsoupに慣れる
 
 Jsoupはjava製のDOM解析用のライブラリである。  
 サーバ上やローカル環境のHTMLファイルのDOMを解析する際に有用である。  
 
 https://jsoup.org/cookbook/  
-
-利用方法
 
 #### サーバ上のHTMLファイルを取得する。
 
@@ -73,13 +71,29 @@ import org.jsoup.select.Elements;
 
 public class TrainingScraping {
     public static void main(String[] args) throws IOException {
-        Document doc = Jsoup.connect("http://en.wikipedia.org/").get();
-	Elements newsHeadlines = doc.select("#mp-itn b a");//cssセレクタを引数を渡すと対象のDOMを取得できる
-	System.out.println(newsHeadlines.text());//Elements#textでDOMのテキスト部分を抽出できる。
-	}
+        Document doc = Jsoup.connect("http://en.wikipedia.org/").get();//サーバ上のHTMLファイルを取得する
+        Elements newsHeadlines = doc.select("#mp-itn b a");//cssセレクタを引数を渡すと対象のDOMを取得できる
+        System.out.println(newsHeadlines.text());//Elements#textでDOMのテキスト部分を抽出できる。
+    }
 }	
 ```
 
+#### 任意のDOMのテキストのみを取得する
+
+org.jsoup.select.Elements#html() ではなく、org.jsoup.select.Elements#text()を使う
+
+* org.jsoup.select.Elements#html()の場合
+
+```
+    <p>「成長したい！」という意欲をお持ちの方を積極採用していきます。35歳迄（例外事由3号のイ）</p> 
+    <p>【具体的には】<br>◆経験は一切問いません。 <br>経験がないというのは、 <br>新しいことをどんどん吸収できるということ。 <br>ですから、新卒の方と同じように、 <br>言葉づかいから名刺交換などのビジネスマナーにいたるまで、 <br>一つ一つ教え、育てたいと思っています。 <br> <br>≪ひとつでも当てはまったら、ぜひご応募を！≫ <br>・みんなで同じ目標に向かってがんばりたい <br>・新しいフィールドでチャレンジしたい <br>・成長企業で働きたい</p>
+```
+
+* org.jsoup.select.Elements#textの場合
+
+```
+    「成長したい！」という意欲をお持ちの方を積極採用していきます。35歳迄（例外事由3号のイ） 【具体的には】 ◆経験は一切問いません。 経験がないというのは、 新しいことをどんどん吸収できるということ。 ですから、新卒の方と同じように、 言葉づかいから名刺交換などのビジネスマナーにいたるまで、 一つ一つ教え、育てたいと思っています。 ≪ひとつでも当てはまったら、ぜひご応募を！≫ ・みんなで同じ目標に向かってがんばりたい ・新しいフィールドでチャレンジしたい ・成長企業で働きたい
+```
 
 ## 参考
 
