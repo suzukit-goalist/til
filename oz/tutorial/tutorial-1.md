@@ -1,4 +1,4 @@
-#  Jsoupを使った求人情報のクローリング&スクレイピング
+  Jsoupを使った求人情報のクローリング&スクレイピング
 
 ## 目的
 
@@ -10,12 +10,17 @@
 
 ## 前提
 
-* eclipseをインストール済み
+* eclipseをインストール済みであること
 * Javaの文法を理解していること
 
 ## 依存するライブラリ
 
-pom.xml  
+本ドキュメントでは以下のライブラリを使用している。
+
+* jsoup 1.9.2
+
+mavenを使用する場合は以下のpom.xmlを参考にする
+
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -95,6 +100,10 @@ org.jsoup.select.Elements#html() ではなく、org.jsoup.select.Elements#text()
 ```
     「成長したい！」という意欲をお持ちの方を積極採用していきます。35歳迄（例外事由3号のイ） 【具体的には】 ◆経験は一切問いません。 経験がないというのは、 新しいことをどんどん吸収できるということ。 ですから、新卒の方と同じように、 言葉づかいから名刺交換などのビジネスマナーにいたるまで、 一つ一つ教え、育てたいと思っています。 ≪ひとつでも当てはまったら、ぜひご応募を！≫ ・みんなで同じ目標に向かってがんばりたい ・新しいフィールドでチャレンジしたい ・成長企業で働きたい
 ```
+
+### 求人情報のクローリング&スクレイピングを行う
+
+Comming soon
 
 ## 参考
 
