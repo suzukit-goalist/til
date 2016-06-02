@@ -15,6 +15,7 @@
 
 ## 依存するライブラリ
 
+pom.xml  
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -49,6 +50,36 @@
 	</dependencies>
 </project>
 ```
+
+## チュートリアル
+
+### Jsoupに慣れよう
+
+Jsoupはjava製のDOM解析用のライブラリである。  
+サーバ上やローカル環境のHTMLファイルのDOMを解析する際に有用である。  
+
+https://jsoup.org/cookbook/  
+
+利用方法
+
+#### サーバ上のHTMLファイルを取得する。
+
+```java
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+public class TrainingScraping {
+    public static void main(String[] args) throws IOException {
+        Document doc = Jsoup.connect("http://en.wikipedia.org/").get();
+	Elements newsHeadlines = doc.select("#mp-itn b a");//cssセレクタを引数を渡すと対象のDOMを取得できる
+	System.out.println(newsHeadlines.text());//Elements#textでDOMのテキスト部分を抽出できる。
+	}
+}	
+```
+
 
 ## 参考
 
