@@ -58,6 +58,7 @@ pom.xml
 Jsoupはjava製のDOM解析用のライブラリである。  
 サーバ上やローカル環境のHTMLファイルのDOMを解析する際に有用である。  
 
+利用方法の詳細については、以下のドキュメントを参照する。  
 https://jsoup.org/cookbook/  
 
 #### サーバ上のHTMLファイルを取得する。
@@ -73,7 +74,7 @@ public class TrainingScraping {
     public static void main(String[] args) throws IOException {
         Document doc = Jsoup.connect("http://en.wikipedia.org/").get();//サーバ上のHTMLファイルを取得する
         Elements newsHeadlines = doc.select("#mp-itn b a");//cssセレクタを引数を渡すと対象のDOMを取得できる
-        System.out.println(newsHeadlines.text());//Elements#textでDOMのテキスト部分を抽出できる。
+        System.out.println(newsHeadlines.text());//Elements#text()でDOMのテキスト部分を抽出できる。
     }
 }	
 ```
@@ -89,7 +90,7 @@ org.jsoup.select.Elements#html() ではなく、org.jsoup.select.Elements#text()
     <p>【具体的には】<br>◆経験は一切問いません。 <br>経験がないというのは、 <br>新しいことをどんどん吸収できるということ。 <br>ですから、新卒の方と同じように、 <br>言葉づかいから名刺交換などのビジネスマナーにいたるまで、 <br>一つ一つ教え、育てたいと思っています。 <br> <br>≪ひとつでも当てはまったら、ぜひご応募を！≫ <br>・みんなで同じ目標に向かってがんばりたい <br>・新しいフィールドでチャレンジしたい <br>・成長企業で働きたい</p>
 ```
 
-* org.jsoup.select.Elements#textの場合
+* org.jsoup.select.Elements#text()の場合
 
 ```
     「成長したい！」という意欲をお持ちの方を積極採用していきます。35歳迄（例外事由3号のイ） 【具体的には】 ◆経験は一切問いません。 経験がないというのは、 新しいことをどんどん吸収できるということ。 ですから、新卒の方と同じように、 言葉づかいから名刺交換などのビジネスマナーにいたるまで、 一つ一つ教え、育てたいと思っています。 ≪ひとつでも当てはまったら、ぜひご応募を！≫ ・みんなで同じ目標に向かってがんばりたい ・新しいフィールドでチャレンジしたい ・成長企業で働きたい
