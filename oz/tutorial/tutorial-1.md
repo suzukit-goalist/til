@@ -60,7 +60,7 @@ mavenを使用する場合は以下のpom.xmlを参考にする
 </project>
 ```
 
-## チュートリアル
+## Cookbooks
 
 ### Jsoupに慣れる
 
@@ -113,14 +113,48 @@ org.jsoup.select.Elements#html() ではなく、org.jsoup.select.Elements#text()
 
 Comming soon
 
-### java.net.SocketTimeoutException
+### java.net.SocketTimeoutException を回避する
 
 ```java
 private static int TIMEOUT_MILLIS = 10 * 1000;
 Document doc = Jsoup.connect(BASE_URL + indexUrl).timeout(TIMEOUT_MILLIS).get();
 ```
 
-http://stackoverflow.com/questions/6571548/i-get-a-sockettimeoutexception-in-jsoup-read-timed-out
+http://stackoverflow.com/questions/6571548/i-get-a-sockettimeoutexception-in-jsoup-read-timed-out  
+
+### csvファイルを出力する
+
+```java
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+    private static final String[] CSV_HEADER = { "ID", "取得日", "掲載終了日", "企業名", "職種カテゴリー", "職種サブカテゴリー", "募集職種", "郵便番号",
+            "住所", "電話番号", "採用担当部署", "メールアドレス", "URL", "事業内容", "従業員数", "設立年", "応募資格", "勤務地", "仕事内容", "掲載URL", "掲載媒体",
+            "給与" };
+            
+    static void generateCsvHeader() {
+        File file = new File("rikunavi_data.csv");
+        try {
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            for (int i = 0; i < CSV_HEADER.length; i++) {
+                pw.write(CSV_HEADER[i]);
+                if (i != CSV_HEADER.length) {
+                    pw.write(",");
+                }
+            }
+            pw.println();
+            pw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+```
 
 ## 参考
 
