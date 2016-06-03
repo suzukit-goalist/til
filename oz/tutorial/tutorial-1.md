@@ -113,6 +113,15 @@ org.jsoup.select.Elements#html() ではなく、org.jsoup.select.Elements#text()
 
 Comming soon
 
+### java.net.SocketTimeoutException
+
+```java
+private static int TIMEOUT_MILLIS = 10 * 1000;
+Document doc = Jsoup.connect(BASE_URL + indexUrl).timeout(TIMEOUT_MILLIS).get();
+```
+
+http://stackoverflow.com/questions/6571548/i-get-a-sockettimeoutexception-in-jsoup-read-timed-out
+
 ## 参考
 
 * jsoup使い方メモ  
