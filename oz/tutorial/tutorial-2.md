@@ -35,12 +35,11 @@
 
     7.1 「ウィンドウ > 新規ソフトウェアのインストール」より、AWS SDKをダウンロードする
 
-        * 更新サイトに以下を選択する  
-	    http://aws.amazon.com/jp/eclipse  
-        * 以下のモジュールを選択する  
-            * Core  
-            * Develop / Lamdaplugin  
-
+    * 更新サイトに以下を選択する  
+        http://aws.amazon.com/jp/eclipse  
+    * 以下のモジュールを選択する  
+        * Core  
+        * Develop / Lamdaplugin  
 
 * メモ
 
