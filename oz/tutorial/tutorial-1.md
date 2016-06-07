@@ -196,6 +196,9 @@ import java.io.PrintWriter;
 
 ### mavenプロジェクトを依存するライブラリを含めた形式でjar出力する
 
+maven shade plugin を使う  
+https://maven.apache.org/plugins/maven-shade-plugin/
+
 pom.xmlに以下の記載を追加し、以下のコマンドを実行する。
 
 ```shell
