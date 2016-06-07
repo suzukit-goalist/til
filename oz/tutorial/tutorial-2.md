@@ -20,55 +20,54 @@
 
 4. ダイアログにて、以下を入力し、完了ボタンを押す
 
-* URL  
-		リポジトリのURLを入力する  
-* 認証  
-    ユーザ名とパスワードを入力する
+    * URL  
+        リポジトリのURLを入力する  
+    * 認証  
+        ユーザ名とパスワードを入力する
 
 5. ツリーより、以下のフォルダを右クリックし、「チェックアウト」を選択する
 
-* OZ  
-* OZlib  
+    * OZ  
+    * OZlib  
 
 6. チェックアウト後、パースペクティブをJavaにする。画面左側のナビゲータに上記ディレクトリが表示されていることを確認する
 
-### コンパイルエラーを除去する
+## コンパイルエラーを除去する
 
 1. Java7でコンパイルする設定にする
 
-Javaコンパイラー
-
-		コンパイラーの準拠レベル
-			1.7にする
+OZ > プロパティ > Javaコンパイラーより、コンパイラーの準拠レベルを1.7にする
 
 2. OZプロジェクトを右クリックし、プロパティを選択する
 
 2.1. Javaのビルドパス
 		
 * ライブラリ  
-** ant.jarからxmlbeansを選択し、除去する  
-** 「外部jarの追加」より、OZ/lib内のjarファイルを選択する  
-** JREシステムライブラリが1.7になっていることを確認する。なっていない場合は、1.7にする  
+    * ant.jarからxmlbeansを選択し、除去する  
+    * 「外部jarの追加」より、OZ/lib内のjarファイルを選択する  
+    * JREシステムライブラリが1.7になっていることを確認する。なっていない場合は、1.7にする  
 * ソース  
-** resourcesを除去
-** チェックアウトしたOZプロジェクトのresourcesを追加する  
-** OZlib/srcを追加する
-** OZlib/resourceを追加する
+    * resourcesを除去
+    * チェックアウトしたOZプロジェクトのresourcesを追加する  
+    * OZlib/srcを追加する  
+    * OZlib/resourceを追加する  
 
-3. AWS SDKをインストールする
-	新規ソフトウェアのインストール
-		http://aws.amazon.com/jp/eclipse
-			Core
-			Develop
-				Lamdaplugin
-	一旦AWSアクセスキーは無視
-	$HOME/aws-java-sdkにソースコードがインストールされる	
+3. AWS SDKをインストールする  
 
-	Javaのビルドパス
-		ライブラリの追加	
-			Java AWS SDK
+ウィンドウ > 新規ソフトウェアのインストール  
 
-4. OZを動かす
+		http://aws.amazon.com/jp/eclipse  
+			Core  
+			Develop  
+				Lamdaplugin  
+	一旦AWSアクセスキーは無視  
+	$HOME/aws-java-sdkにソースコードがインストールされる  
+
+	Javaのビルドパス  
+		ライブラリの追加  
+			Java AWS SDK  
+
+## OZを動かす
 
 事前準備
 
