@@ -194,6 +194,46 @@ import java.io.PrintWriter;
     }
 ```
 
+### mavenプロジェクトを依存するライブラリを含めた形式でjar出力する
+
+pom.xmlに以下の記載を追加し、以下のコマンドを実行する。
+
+```shell
+mvn package
+```
+
+pom.xml
+
+```xml
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <transformers>
+                        <transformer
+                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <manifestEntries>
+                                <Main-Class>jp.co.goalist.training.suzukit.TrainingExecutor</Main-Class>
+                            </manifestEntries>
+                        </transformer>
+                    </transformers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+```
+
 ## 参考
 
 * jsoup使い方メモ  
