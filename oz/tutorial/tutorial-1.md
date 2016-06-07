@@ -159,6 +159,8 @@ http://stackoverflow.com/questions/6571548/i-get-a-sockettimeoutexception-in-jso
 
 ### csvファイルを出力する
 
+OutputStreamWriterを使わないと、文字コードを指定できない。
+
 ```java
 
 import java.io.BufferedWriter;
@@ -171,15 +173,16 @@ import java.io.PrintWriter;
             "住所", "電話番号", "採用担当部署", "メールアドレス", "URL", "事業内容", "従業員数", "設立年", "応募資格", "勤務地", "仕事内容", "掲載URL", "掲載媒体",
             "給与" };
             
-    static void generateCsvHeader() {
+    private void generateCsvHeader() {
         File file = new File("rikunavi_data.csv");
         try {
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
+            FileOutputStream fo = new FileOutputStream(file);
+            OutputStreamWriter os = new OutputStreamWriter(fo, "UTF-8");
+            BufferedWriter bw = new BufferedWriter(os);
             PrintWriter pw = new PrintWriter(bw);
             for (int i = 0; i < CSV_HEADER.length; i++) {
                 pw.write(CSV_HEADER[i]);
-                if (i != CSV_HEADER.length) {
+                if (i != CSV_HEADER.length - 1) {
                     pw.write(",");
                 }
             }
