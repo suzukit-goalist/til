@@ -1,10 +1,8 @@
 # ローカル環境でOZを動かす
 
-## SVNリポジトリ
+## 事前準備
 
-セキュリティの都合上、未記載
-
-## SVNアカウント作成
+### SVNアカウント作成
 
 盛次さんに依頼する
 
@@ -30,75 +28,83 @@
     * OZ  
     * OZlib  
 
-6. チェックアウト後、パースペクティブをJavaにする。画面左側のナビゲータに上記ディレクトリが表示されていることを確認する
+6. チェックアウト後、パースペクティブをJavaにする。  
+   画面左側のナビゲータにチェックアウトしたプロジェクトが表示されていることを確認する
 
-## コンパイルエラーを除去する
+7. AWS SDKをインストールする  
+
+7.1 「ウィンドウ > 新規ソフトウェアのインストール」より、サイトに
+
+    * 更新サイトに以下を選択する
+	http://aws.amazon.com/jp/eclipse  
+    * 以下のモジュールを選択する
+        * Core
+        * Develop / Lamdaplugin  
+
+```
+メモ：
+一旦AWSアクセスキー等の入力は無視してOK  
+ソースコード(クラスファイル)は$HOME/aws-java-sdkにインストールされる  
+```
+
+### プロジェクトの設定をする
 
 1. Java7でコンパイルする設定にする
 
-OZ > プロパティ > Javaコンパイラーより、コンパイラーの準拠レベルを1.7にする
+    OZ > プロパティ > Javaコンパイラーより、コンパイラーの準拠レベルを1.7にする
 
 2. OZプロジェクトを右クリックし、プロパティを選択する
 
 2.1. Javaのビルドパス
 		
-* ライブラリ  
-    * ant.jarからxmlbeansを選択し、除去する  
-    * 「外部jarの追加」より、OZ/lib内のjarファイルを選択する  
-    * JREシステムライブラリが1.7になっていることを確認する。なっていない場合は、1.7にする  
-* ソース  
-    * resourcesを除去
-    * チェックアウトしたOZプロジェクトのresourcesを追加する  
-    * OZlib/srcを追加する  
-    * OZlib/resourceを追加する  
-
-3. AWS SDKをインストールする  
-
-ウィンドウ > 新規ソフトウェアのインストール  
-
-		http://aws.amazon.com/jp/eclipse  
-			Core  
-			Develop  
-				Lamdaplugin  
-	一旦AWSアクセスキーは無視  
-	$HOME/aws-java-sdkにソースコードがインストールされる  
-
-	Javaのビルドパス  
-		ライブラリの追加  
-			Java AWS SDK  
+    * ライブラリ  
+        * デフォルトで設定されているant.jarからxmlbeansを除去する  
+        * 「外部jarの追加」より、OZ/lib内のjarファイルを選択する  
+        * JREシステムライブラリに1.7が選択されていることを確認する。選択されていない場合は、1.7を選択する。  
+        * Java AWS SDKを追加する  
+    * ソース  
+        * デフォルトで設定されているresourcesを除去  
+        * チェックアウトしたOZプロジェクトのresourcesを追加する  
+        * OZlib/srcを追加する  
+        * OZlib/resourceを追加する  
 
 ## OZを動かす
 
-事前準備
+### 事前準備
 
-ドライブ直下(ルート直下)に以下のディレクトリを作成する
+ドライブ直下(ルート直下)に以下のディレクトリとファイルを作成する
+
+```
 	oz/
 		oz.ini
-			編集する
-				instanceCd
 		ozCrawler/
-			ini
-			lst
+			RNN.ini
+			RNN.lst
 		ozScraper/
-			ini
-				shiftf-JIS
-			lst
+			RNN-TC.ini
+			RNN-TC.lst
 	ebs/
+```
 
-クロールする
 
-OzCrawlerをエクリプス上で実行する
+### クロールする
+
+OzCrawlerのmainメソッドをエクリプス上で実行する。  
+その際、mainメソッド内の記載を以下のように変更する。
+
+```java
 	args = new String[]　{"RNN"};
+```
 
-スクレイプをする
+### スクレイプをする
 
-ebs/oz/～～～～～より、htmlファイルの出力
+ebs/oz/～～～～～より、htmlファイルの出力先のディレクトリ名を確認する  (例)
 
-OzScraperをエクリプス上で実行する
+OzScraperのmainメソッドをエクリプス上で実行する。
+その際、mainメソッド内の記載を以下のように変更する。
+
+```java
 	args = new String[2];
 	args[0] ="RNN-TC"
 	args[1] ="ジョブのID"
-
-おまけ
-	colud berry explorerをインストールすると幸せになれる
-	zip化はozRegularJobでやる。
+```
