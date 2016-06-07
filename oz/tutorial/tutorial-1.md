@@ -42,6 +42,34 @@ mavenを使用する場合は以下のpom.xmlを参考にする
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+							<manifestEntries>
+								<Main-Class>jp.co.goalist.training.suzukit.TrainingExecutor</Main-Class>
+							</manifestEntries>
+						</transformer>
+					</transformers>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -55,6 +83,13 @@ mavenを使用する場合は以下のpom.xmlを参考にする
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
 			<version>1.9.2</version>
+		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
 		</dependency>
 	</dependencies>
 </project>
