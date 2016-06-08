@@ -84,8 +84,7 @@
           (例)C:\Users\suzukit\workspace\Ozlib\src  
         * Folder name  
           OZlib  
-      * OZlib/srcを追加する(Eclipse Mars.2 Release (4.5.2) では無理そう)  
-      * OZlib/resourceを追加する(不要？手順から削除予定。)  
+      * 同様に、OZlib/resourceを追加する(不要？手順から削除予定。)  
 
 * メモ  
 
