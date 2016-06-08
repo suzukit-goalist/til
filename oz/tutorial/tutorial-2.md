@@ -117,6 +117,12 @@
 	args = new String[] {"RNN"};
    ```
 
+   以下のエラーはログ出力に関するエラーなので、一旦無視する。
+
+   ```
+   ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
+   ```
+
 2. htmlファイルが出力されることを確認する。
 
 ### スクレイプする  
