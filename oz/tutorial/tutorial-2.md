@@ -33,13 +33,13 @@
 
 7. AWS SDKをインストールする  
 
-    7.1 「ウィンドウ > 新規ソフトウェアのインストール」より、AWS SDKをダウンロードする
+    7.1 「ヘルプ > 新規ソフトウェアのインストール」より、AWS SDKをダウンロードする
 
     * 更新サイトに以下を選択する  
         http://aws.amazon.com/jp/eclipse  
     * 以下のモジュールを選択する  
-        * Core  
-        * Develop / Lamdaplugin  
+        * AWS Core Management Tools
+        * AWS Deployment Tools/ AWS Lambda Plugin  
 
 * メモ
 
@@ -54,16 +54,16 @@
 
     OZ > プロパティ > Javaコンパイラーより、コンパイラーの準拠レベルを1.7にする  
 
-2. OZプロジェクトを右クリックし、プロパティを選択する  
+2. Javaのビルドパスを設定する
+   
+   OZプロジェクトを右クリックし、「プロパティ > Javaのビルドパス」を選択する  
 
-2.1. Javaのビルドパス  
-
-  * ライブラリ  
-      * デフォルトで設定されているant.jarからxmlbeansを除去する  
+   * ライブラリ  
+      * デフォルトで設定されているant.jarからxmlbeansまでを除去する  
       * 「外部jarの追加」より、OZ/lib内のjarファイルを選択する  
       * JREシステムライブラリに1.7が選択されていることを確認する。選択されていない場合は、1.7を選択する  
       * Java AWS SDKを追加する  
-  * ソース  
+   * ソース  
       * デフォルトで設定されているresourcesを除去する  
       * チェックアウトしたOZプロジェクトのresourcesを追加する  
       * OZlib/srcを追加する  
