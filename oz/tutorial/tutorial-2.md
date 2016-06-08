@@ -8,8 +8,9 @@
 
 * eclipseをインストール済みであること
 
-
 ## 開発環境作成
+
+### JDK7をインストールする
 
 ### ソースコードのチェックアウト
 
@@ -53,24 +54,33 @@
 
 ### プロジェクトの設定
 
+チェックアウト直後では、OZプロジェクトに複数のコンパイルエラーが発生しているので、  
+以下の手順に従い、コンパイルエラーを除去する。
+
 1. Java7でコンパイルする設定にする  
 
-    OZ > プロパティ > Javaコンパイラーより、コンパイラーの準拠レベルを1.7にする  
+    OZプロジェクトを右クリックし、「プロパティ > Javaコンパイラー」より、以下の手順に従いコンパイラーの準拠レベルを1.7にする  
+    
+    1.1. JDK Comliance 内の 「Use compliance from execution environment 'JavaSE-1.6' on the 'Java Build Path'」のチェックを外す
+    1.2. 「Compiler compliance level:」を1.7に設定する
+    1.3. 「Window > Preferences > Java > Installed JREs」より、JDK7内のJREを選択する
 
 2. プロジェクトのビルドパスを設定する
    
    OZプロジェクトを右クリックし、「プロパティ > Javaのビルドパス」を選択する   
 
    * ライブラリ  
-      * デフォルトで設定されているant.jarからxmlbeansまでを除去する  
-      * 「外部jarの追加」より、OZ/lib内のjarファイルを選択する  
+      * デフォルトで設定されているant.jarからxmlbeans-2.3.0.jarまでを除去する  
+      * 「Add JARs」より、OZ/lib内のjarファイルを全て選択する  
       * JREシステムライブラリに1.7が選択されていることを確認する。選択されていない場合は、1.7を選択する  
+          * 「JREシステムライブラリ」を選択し、「編集」を押す
+          * 「Execution environment:」に「JavaSE-1.7 (jdk1.7.0_xx)」を設定する。
       * Java AWS SDKを追加する  
    * ソース  
       * デフォルトで設定されているresourcesを除去する  
       * チェックアウトしたOZプロジェクトのresourcesを追加する  
-      * OZlib/srcを追加する  
-      * OZlib/resourceを追加する  
+      * OZlib/srcを追加する(Eclipse Mars.2 Release (4.5.2) では無理そう)  
+      * OZlib/resourceを追加する(Eclipse Mars.2 Release (4.5.2) では無理そう)  
 
 * メモ  
 
