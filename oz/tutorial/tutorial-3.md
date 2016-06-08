@@ -45,8 +45,8 @@ nextPageCheckTypeの設定値により、ページング方法が決まる。
   
 ### 詳細ページに遷移後、さらに別ページ(別タブ)をクロールする
 
-* crawlTypeを2に設定する
-* targetSecondPageUrlIncStrに別ページに遷移するURLに含まれる文字列を設定する
+crawlTypeを2に設定する
+targetSecondPageUrlIncStrに別ページに遷移するURLに含まれる文字列を設定する
 
 設定例
 
