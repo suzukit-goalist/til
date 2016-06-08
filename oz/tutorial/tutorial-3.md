@@ -1,6 +1,6 @@
 # クローリング
 
-## リファレンス
+## 設定値詳細
 
 http://urx3.nu/tUga
 
@@ -22,10 +22,12 @@ nextPageCheckTypeの設定値により、ページング方法が決まる。
 
   例えば、以下のURLの-page__1の部分をインクリメントする場合、以下の設定にする  
   http://doda.jp/DodaFront/View/JobSearchList/j_pr__13/-oc__03L/-preBtn__1/-page__1/
-
-    * nextPageCheckType=7
-    * nextPageParam=http://doda.jp/DodaFront/View/JobSearchList/j_pr__13/-oc__03L/-preBtn__1/-page__
-    * nextPageScPreStr=-page__
+  
+  ```
+  nextPageCheckType=7
+  nextPageParam=http://doda.jp/DodaFront/View/JobSearchList/j_pr__13/-oc__03L/-preBtn__1/-page__
+  nextPageScPreStr=-page__
+  ```
 
 * 全件数と1ページ当たりに表示される件数を設定する
 
