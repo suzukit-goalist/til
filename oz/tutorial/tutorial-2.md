@@ -124,11 +124,17 @@
    ```
 
 2. htmlファイルが出力されることを確認する。
+   
+   ebs\oz\${ジョブID}\html ディレクトリ配下にhtmlファイルが生成されていることを確認する。  
+   何件か出力されていることを確認できれば、OzCrawlerを停止してOK  
+
+   (例)C:\ebs\oz\20160608120054\html\cmi0082115023_nx1_rq0012862880.html
 
 ### スクレイプする  
 
 1. ebs/oz/～～～～～より、htmlファイルが出力されたディレクトリ名を確認する  
-   このディレクトリ名がジョブIDとなる。 (例)
+   このディレクトリ名がジョブIDとなる。 (例)20160608120054
+   以下、ジョブIDを${ジョブID}と表記する
 
 2. OzScraperのmainメソッドをエクリプス上で実行する。  
    その際、mainメソッド内の記載を以下のように変更する。  
@@ -136,5 +142,15 @@
    ```java
 	args = new String[2];
 	args[0] ="RNN-TC";
-	args[1] ="ジョブのID";
+	args[1] ="${ジョブID}";
+   ```  
+   
+   以下のエラーはログ出力に関するエラーなので、一旦無視する。
+
    ```
+   ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
+   ```
+
+3. csvファイルが出力されることを確認する。  
+   ebs\oz\${ジョブID}配下に、csvファイルが出力されることを確認する  
+   (例) C:\ebs\oz\20160608120054\RNN-TC_20160608121023.csv  
