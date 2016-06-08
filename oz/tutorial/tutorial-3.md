@@ -1,6 +1,6 @@
 # クローリング
 
-## 設定値詳細
+## パラメータ
 
 http://urx3.nu/tUga
 
@@ -23,6 +23,8 @@ nextPageCheckTypeの設定値により、ページング方法が決まる。
   例えば、以下のURLの-page__1の部分をインクリメントする場合、以下の設定にする  
   http://doda.jp/DodaFront/View/JobSearchList/j_pr__13/-oc__03L/-preBtn__1/-page__1/
   
+  設定例
+  
   ```
   nextPageCheckType=7
   nextPageParam=http://doda.jp/DodaFront/View/JobSearchList/j_pr__13/-oc__03L/-preBtn__1/-page__
@@ -33,7 +35,14 @@ nextPageCheckTypeの設定値により、ページング方法が決まる。
 
   searchCountCheckClassに全件数が表示されているエレメントのクラス属性を設定する  
   searchCountByPageに1ページ当たりに表示される件数を設定する
-
+  
+  設定例                  
+  
+  ```
+  searchCountCheckClass=red_kensu
+  searchCountByPage=50
+  ```
+  
 ### 詳細ページに遷移後、さらに別ページ(別タブ)をクロールする
 
 * crawlTypeを2に設定する
