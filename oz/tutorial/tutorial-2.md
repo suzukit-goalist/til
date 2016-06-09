@@ -148,7 +148,7 @@ https://github.com/suzukit-goalist/til/tree/master/oz/tutorial/files/tutorial-2/
 
 ### スクレイプする  
 
-1. ebs/oz/～～～～～より、htmlファイルが出力されたディレクトリ名を確認する  
+1. ebs\oz\${ジョブID}より、htmlファイルが出力されたディレクトリ名を確認する  
    このディレクトリ名がジョブIDとなる。 (例)20160608120054
    以下、ジョブIDを${ジョブID}と表記する
 
